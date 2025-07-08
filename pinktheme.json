@@ -1,0 +1,56 @@
+{
+    "CTk": {
+        "fg_color": [
+            "#fce4ec",
+            "#f8bbd0"
+        ],
+        "bg_color": "#fce4ec",
+        "border_color": "#f06292",
+        "text_color": "#000000"
+    },
+    "CTkFont": {
+        "family": "Arial",
+        "size": 14,
+        "weight": "normal"
+    },
+    "CTkButton": {
+        "fg_color": "#f06292",
+        "border_width": 2,
+        "text_color_disabled": "#aaaaaa",
+        "border_color": "#f06292",
+        "hover_color": "#ec407a",
+        "text_color": "#ffffff",
+        "corner_radius": 10
+    },
+    "CTkLabel": {
+        "fg_color": "transparent",
+        "text_color": "#880e4f",
+        "corner_radius": 10
+    },
+    "CTkEntry": {
+        "fg_color": "#ffffff",
+        "border_color": "#f06292",
+        "placeholder_text_color": "#ad1457",
+        "text_color": "#000000",
+        "corner_radius": 10,
+        "border_width": 1
+    },
+    "CTkFrame": {
+        "fg_color": "#f8bbd0",
+        "border_color": "#f06292",
+        "corner_radius": 12,
+        "border_width": 2
+    },
+    "CTkSwitch": {
+        "fg_color": "#f8bbd0",
+        "progress_color": "#f06292",
+        "corner_radius": 12,
+        "button_length": 26,
+        "border_width": 2,
+        "text_color_disabled": "#aaaaaa",
+        "button_hover_color": "#ec407a",
+        "text_color": "#000000",
+        "border_color": "#f06292",
+        "button_color": "#f06292"
+    }
+}

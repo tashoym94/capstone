@@ -1,74 +1,44 @@
 [
     {
-        "timestamp": "2025-07-06 16:20:02",
+        "timestamp": "2025-07-09 16:46:34",
         "city": "Miami",
-        "temperature": 82.8,
+        "temperature": 88.57,
         "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-06 16:28:07",
+        "timestamp": "2025-07-09 16:50:40",
         "city": "Miami",
-        "temperature": 82.6,
+        "temperature": 88.54,
         "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-06 16:43:22",
-        "city": "Toronto",
-        "temperature": 90.99,
-        "description": "few clouds"
-    },
-    {
-        "timestamp": "2025-07-06 16:51:49",
-        "city": "Toronto",
-        "temperature": 90.81,
-        "description": "few clouds"
-    },
-    {
-        "timestamp": "2025-07-06 18:14:51",
-        "city": "Toronto",
-        "temperature": 90.45,
-        "description": "scattered clouds"
-    },
-    {
-        "timestamp": "2025-07-06 19:41:59",
-        "city": "New York",
-        "temperature": 85.87,
-        "description": "clear sky"
-    },
-    {
-        "timestamp": "2025-07-06 20:03:28",
+        "timestamp": "2025-07-09 16:54:41",
         "city": "Miami",
-        "temperature": 83.91,
-        "description": "overcast clouds"
+        "temperature": 88.54,
+        "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-06 20:19:26",
+        "timestamp": "2025-07-09 17:30:05",
         "city": "Miami",
-        "temperature": 83.7,
-        "description": "thunderstorm"
+        "temperature": 88.79,
+        "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-06 20:20:14",
+        "timestamp": "2025-07-09 17:37:25",
         "city": "Miami",
-        "temperature": 83.7,
-        "description": "thunderstorm"
+        "temperature": 88.86,
+        "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-06 20:20:57",
-        "city": "London",
-        "temperature": 62.2,
-        "description": "scattered clouds"
+        "timestamp": "2025-07-09 17:45:44",
+        "city": "Miami",
+        "temperature": 88.61,
+        "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-06 20:21:21",
-        "city": "London",
-        "temperature": 62.2,
-        "description": "scattered clouds"
-    },
-    {
-        "timestamp": "2025-07-06 21:11:18",
-        "city": "London",
-        "temperature": 61.59,
+        "timestamp": "2025-07-09 18:14:52",
+        "city": "Miami",
+        "temperature": 88.32,
         "description": "broken clouds"
     }
 ]

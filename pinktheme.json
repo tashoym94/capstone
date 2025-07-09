@@ -37,6 +37,7 @@
     },
     "CTkFrame": {
         "fg_color": "#f8bbd0",
+        "top_fg_color": "#f8bbd0",
         "border_color": "#f06292",
         "corner_radius": 12,
         "border_width": 2
@@ -52,5 +53,34 @@
         "text_color": "#000000",
         "border_color": "#f06292",
         "button_color": "#f06292"
+    },
+    "CTkSegmentedButton": {
+        "fg_color": "#F8BBD0",
+        "selected_color": "#EC407A",
+        "selected_hover_color": "#ec407a",
+        "unselected_hover_color": "#ec407a",
+        "unselected_color": "#FCE4EC",
+        "text_color_disabled": "#aaaaaa",
+        "corner_radius": 12,
+        "text_color": "#000000"
+    },
+    "CTkTextbox": {
+        "fg_color": "#ffffff",
+        "bg_color": "#fce4ec",
+        "border_color": "#f06292",
+        "text_color": "#000000",
+        "placeholder_text_color": "#ad1457",
+        "corner_radius": 10,
+        "border_width": 2,
+        "scrollbar_button_color": "#ec407a",
+        "scrollbar_button_hover_color": "#EC407A"
+    },
+    "CTkScrollbar": {
+        "fg_color": "#f8bbd0",
+        "button_color": "#f06292",
+        "button_hover_color": "#ec407a",
+        "border_color": "#f06292",
+        "corner_radius": 8,
+        "width": 12
     }
 }

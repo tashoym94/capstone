@@ -1,4 +1,3 @@
-# capstone
 # 🌦️ Weather Dashboard App
 
 A modern, multi-tab weather application built with **Python** using **CustomTkinter** for the interface and **Matplotlib** for visualizations. This app allows users to:
@@ -64,4 +63,5 @@ python livedemo.py
 
 🧱 Missing Widget Styles: CustomTkinter may error if your theme is incomplete
 
-
+Tashoy Miller
+Repo - 

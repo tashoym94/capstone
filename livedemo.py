@@ -4,6 +4,7 @@ import os
 import json
 import matplotlib.figure as Figure
 from datetime import datetime
+from tkinter import messagebox
 from dotenv import load_dotenv
 from PIL import Image
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -17,12 +18,11 @@ class WeatherApp:
     def __init__(self):
         # Set theme and appearance
         ctk.set_appearance_mode("light")
-        # Ensure this file exists
         ctk.set_default_color_theme("pinktheme.json")
-
+        # create window
         self.root = ctk.CTk()
         self.root.title("Weather Dashboard")
-        self.root.geometry("420x520")
+        self.root.geometry("900x600")
 
         self.root.protocol("WM_DELETE_WINDOW", self.on_close)  # Clean shutdown
 
@@ -32,6 +32,8 @@ class WeatherApp:
         self.chart_widget = None  # To track the matplotlib chart widget
 
         self.setup_gui()
+# Move to GUI folder
+# Weather, history, city comp
 
     def setup_gui(self):
         self.tabview = ctk.CTkTabview(self.root, width=400, height=470)
@@ -69,6 +71,23 @@ class WeatherApp:
             self.weather_tab, text="", font=ctk.CTkFont(size=10))
         self.update_label.pack()
 
+        self.feelslike_label = ctk.CTkLabel(
+            self.weather_tab, text="", font=ctk.CTkFont(size=12))
+        self.feelslike_label.pack()
+
+        self.humidity_label = ctk.CTkLabel(
+            self.weather_tab, text="", font=ctk.CTkFont(size=12))
+        self.humidity_label.pack()
+
+        self.wind_label = ctk.CTkLabel(
+            self.weather_tab, text="", font=ctk.CTkFont(size=12))
+        self.wind_label.pack()
+
+        self.weather_icon_label = ctk.CTkLabel(self.weather_tab, text="")
+        self.weather_icon_label.pack(pady=5)
+
+
+# Move to features folder
         # History Tab
         self.history_table = ctk.CTkFrame(self.history_tab)
         self.history_table.pack(pady=10, padx=10, fill="both", expand=True)
@@ -102,6 +121,7 @@ class WeatherApp:
 
     def run(self):
         self.root.mainloop()
+# Move to features
 
     def get_weather_click(self):
         city = self.city_entry.get().strip()
@@ -114,6 +134,7 @@ class WeatherApp:
             self.display_weather(weather_data)
             self.save_weather(weather_data)
             self.display_history_table()
+# Sends requests to api
 
     def fetch_weather(self, city):
         try:
@@ -142,6 +163,7 @@ class WeatherApp:
         except Exception as e:
             self.handle_errors(f"Error: {e}")
             return None
+# Move to data folder
 
     def display_weather(self, data):
         self.city_label.configure(text=data['name'])
@@ -150,12 +172,23 @@ class WeatherApp:
             text=data['weather'][0]['description'].title())
         self.update_label.configure(
             text=f"Updated: {datetime.now().strftime('%I:%M %p')}")
+        self.feelslike_label.configure(
+            text=f"Feels like: {round(data['main']['feels_like'])}°F")
+        self.humidity_label.configure(
+            text=f"Humidity: {data['main']['humidity']}%")
+        self.wind_label.configure(
+            text=f"Wind Speed: {data['wind']['speed']} mph")
+
+        self.set_icon(self.weather_icon_label, data['weather'][0]['icon'])
 
     def save_weather(self, data):
         record = {
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "city": data['name'],
             "temperature": data['main']['temp'],
+            "feels_like": data['main']['feels_like'],
+            "humidity": data['main']['humidity'],
+            "wind_speed": data['wind']['speed'],
             "description": data['weather'][0]['description']
         }
 
@@ -166,21 +199,25 @@ class WeatherApp:
                     history = json.load(f)
 
             history.append(record)
+
             with open("weather_history.json", "w") as f:
-                json.dump(history[-7:], f, indent=4)
+                json.dump(history[-7:], f, indent=4)  # Keep last 7 records
 
         except Exception as e:
             self.handle_errors(f"Failed to save weather history: {e}")
+
+# Move to features folder
 
     def display_history_table(self):
         for widget in self.history_table.winfo_children():
             widget.destroy()
 
-        headers = ["Date", "City", "Temp (°F)", "Description"]
+        headers = ["Date", "City",
+                   "Temp (°F)", "Feels Like", "Humidity", "Wind", "Description"]
         for i, text in enumerate(headers):
             label = ctk.CTkLabel(self.history_table, text=text,
                                  font=ctk.CTkFont(weight="bold"))
-            label.grid(row=0, column=i, padx=5, pady=5)
+            label.grid(row=0, column=i, padx=4, pady=4)
 
         try:
             if not os.path.exists("weather_history.json"):
@@ -191,16 +228,25 @@ class WeatherApp:
 
             for idx, record in enumerate(reversed(history[-7:]), start=1):
                 ctk.CTkLabel(self.history_table, text=record['timestamp']).grid(
-                    row=idx, column=0, padx=5, pady=2)
+                    row=idx, column=0, padx=4, pady=2)
                 ctk.CTkLabel(self.history_table, text=record['city']).grid(
-                    row=idx, column=1, padx=5, pady=2)
+                    row=idx, column=1, padx=4, pady=2)
                 ctk.CTkLabel(self.history_table, text=round(record['temperature'])).grid(
-                    row=idx, column=2, padx=5, pady=2)
+                    row=idx, column=2, padx=4, pady=2)
+                ctk.CTkLabel(self.history_table, text=round(record.get('feels_like', 0))).grid(
+                    row=idx, column=3, padx=4, pady=2)
+                ctk.CTkLabel(self.history_table, text=f"{record.get('humidity', 'N/A')}%").grid(
+                    row=idx, column=4, padx=4, pady=2)
+                ctk.CTkLabel(self.history_table, text=f"{record.get('wind_speed', 'N/A')} mph").grid(
+                    row=idx, column=5, padx=4, pady=2)
+
                 ctk.CTkLabel(self.history_table, text=record['description'].title()).grid(
-                    row=idx, column=3, padx=5, pady=2)
+                    row=idx, column=6, padx=4, pady=2)
 
         except Exception as e:
             self.handle_errors(f"Failed to load history: {e}")
+
+# Move to features
 
     def compare_cities(self):
         city1 = self.city1_entry.get().strip()
@@ -242,6 +288,7 @@ class WeatherApp:
 
         except Exception as e:
             self.handle_errors(f"Icon load failed: {e}")
+# Move to features folder
 
     def display_chart(self, cities, temps):
         if self.chart_widget:
@@ -260,7 +307,7 @@ class WeatherApp:
         self.chart_widget.get_tk_widget().pack(pady=5)
 
     def handle_errors(self, error):
-        ctk.CTkMessagebox(title="Error", message=error, icon="cancel")
+        messagebox.showerror("Error", error)
 
     def on_close(self):
         try:

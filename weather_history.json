@@ -1,44 +1,58 @@
 [
     {
-        "timestamp": "2025-07-09 19:44:28",
-        "city": "Miami",
-        "temperature": 86.38,
+        "timestamp": "2025-07-11 20:28:56",
+        "city": "Los Angeles",
+        "temperature": 76.51,
+        "description": "clear sky"
+    },
+    {
+        "timestamp": "2025-07-11 20:33:41",
+        "city": "San Diego",
+        "temperature": 72,
         "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-09 19:56:53",
-        "city": "Miami",
-        "temperature": 85.53,
+        "timestamp": "2025-07-11 20:53:35",
+        "city": "San Diego",
+        "temperature": 71.38,
+        "humidity": 73,
+        "wind_speed": 10.36,
         "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-09 19:58:51",
-        "city": "London",
-        "temperature": 68.63,
-        "description": "overcast clouds"
+        "timestamp": "2025-07-11 20:56:14",
+        "city": "Las Vegas",
+        "temperature": 107.87,
+        "feels_like": 100.42,
+        "humidity": 5,
+        "wind_speed": 5.01,
+        "description": "clear sky"
     },
     {
-        "timestamp": "2025-07-09 20:22:19",
-        "city": "Miami",
-        "temperature": 84.34,
+        "timestamp": "2025-07-11 20:58:43",
+        "city": "San Francisco",
+        "temperature": 63.36,
+        "feels_like": 63.01,
+        "humidity": 77,
+        "wind_speed": 20.71,
+        "description": "few clouds"
+    },
+    {
+        "timestamp": "2025-07-11 21:06:36",
+        "city": "Alaska",
+        "temperature": 69.21,
+        "feels_like": 67.75,
+        "humidity": 41,
+        "wind_speed": 3.91,
         "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-09 20:25:02",
-        "city": "Miami",
-        "temperature": 84.34,
-        "description": "broken clouds"
-    },
-    {
-        "timestamp": "2025-07-09 20:27:51",
-        "city": "London",
-        "temperature": 67.71,
-        "description": "overcast clouds"
-    },
-    {
-        "timestamp": "2025-07-09 20:45:27",
-        "city": "Miami",
-        "temperature": 83.84,
-        "description": "broken clouds"
+        "timestamp": "2025-07-11 21:08:04",
+        "city": "Lincoln",
+        "temperature": 80.06,
+        "feels_like": 83.05,
+        "humidity": 70,
+        "wind_speed": 10.36,
+        "description": "clear sky"
     }
 ]

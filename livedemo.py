@@ -28,6 +28,7 @@ class WeatherApp:
 
         self.api_key = os.getenv("open_weather_api_key")
         self.base_url = os.getenv("open_weather_url")
+        self.forecast_url = os.getenv("open_weather_forecast_url")
 
         self.chart_widget = None  # To track the matplotlib chart widget
 
@@ -35,13 +36,72 @@ class WeatherApp:
 # Move to GUI folder
 # Weather, history, city comp
 
+    def get_clothing_recommendation(self, temp, condition):
+        if temp < 40:
+            outfit = "🧥 Heavy jacket, gloves, and scarf"
+        elif temp < 60:
+            outfit = "🧣 Light jacket or sweater"
+        elif temp < 75:
+            outfit = "👕 Long sleeves or hoodie"
+        elif temp < 85:
+            outfit = "👖 T-shirt and jeans or shorts"
+        else:
+            outfit = "🩳 Tank top, shorts, and stay hydrated"
+
+        if "rain" in condition.lower():
+            outfit += " ☔ Bring an umbrella or raincoat"
+        elif "snow" in condition.lower():
+            outfit += " ❄️ Wear waterproof boots"
+
+        return outfit
+
+    def fetch_forecast(self, city):
+        try:
+            if not self.forecast_url:
+                raise ValueError("Forecast URL is missing.")
+
+            params = {'q': city, 'appid': self.api_key, 'units': 'imperial'}
+            response = requests.get(
+                self.forecast_url, params=params, timeout=10)
+
+            if response.status_code == 200:
+                return response.json()
+            else:
+                self.handle_errors(
+                    f"Failed to fetch forecast data. Status: {response.status_code}")
+                return None
+        except Exception as e:
+            self.handle_errors(f"Forecast error: {e}")
+            return None
+
     def setup_gui(self):
+
         self.tabview = ctk.CTkTabview(self.root, width=400, height=470)
         self.tabview.pack(pady=10)
 
         self.weather_tab = self.tabview.add("Weather")
         self.history_tab = self.tabview.add("History")
         self.compare_tab = self.tabview.add("City Comparison")
+
+        self.forecast_tab = self.tabview.add("5-Day Forecast")
+        self.forecast_frame = ctk.CTkFrame(self.forecast_tab)
+        self.forecast_frame.pack(pady=10, padx=10, fill="both", expand=True)
+
+# Forecast input
+        forecast_input = ctk.CTkFrame(self.forecast_tab)
+        forecast_input.pack(pady=5)
+
+        self.forecast_city_entry = ctk.CTkEntry(
+            forecast_input, width=200, placeholder_text="Enter City")
+        self.forecast_city_entry.pack(side="left", padx=5)
+
+        forecast_btn = ctk.CTkButton(
+            forecast_input, text="Show Forecast", command=self.get_forecast_click)
+        forecast_btn.pack(side="left", padx=5)
+
+# Where forecast data will display
+        self.forecast_display = ctk.CTkFrame(self.forecast_tab)
+        self.forecast_display.pack(pady=10, fill="both", expand=True)
 
         # Weather Tab
         search_frame = ctk.CTkFrame(self.weather_tab)
@@ -82,6 +142,10 @@ class WeatherApp:
         self.wind_label = ctk.CTkLabel(
             self.weather_tab, text="", font=ctk.CTkFont(size=12))
         self.wind_label.pack()
+
+        self.outfit_label = ctk.CTkLabel(
+            self.weather_tab, text="", font=ctk.CTkFont(size=12))
+        self.outfit_label.pack(pady=5)
 
         self.weather_icon_label = ctk.CTkLabel(self.weather_tab, text="")
         self.weather_icon_label.pack(pady=5)
@@ -134,6 +198,42 @@ class WeatherApp:
             self.display_weather(weather_data)
             self.save_weather(weather_data)
             self.display_history_table()
+
+    def get_forecast_click(self):
+        city = self.forecast_city_entry.get().strip()
+        if not city:
+            self.handle_errors("Please enter a city name.")
+            return
+
+        forecast_data = self.fetch_forecast(city)
+        if forecast_data:
+            self.display_forecast(forecast_data)
+
+    def display_forecast(self, data):
+        for widget in self.forecast_display.winfo_children():
+            widget.destroy()
+
+        # Filter forecast list to 1 reading per day (every 24 hours, approximately every 8th item)
+        daily_forecasts = [item for idx, item in enumerate(
+            data['list']) if idx % 8 == 0][:5]
+
+        for forecast in daily_forecasts:
+            date = forecast['dt_txt'].split(" ")[0]
+            temp = round(forecast['main']['temp'])
+            desc = forecast['weather'][0]['description'].title()
+            humidity = forecast['main']['humidity']
+            wind = forecast['wind']['speed']
+
+            block = ctk.CTkFrame(self.forecast_display)
+            block.pack(pady=5, fill="x", padx=10)
+
+            ctk.CTkLabel(block, text=f"{date}").pack(anchor="w", padx=5)
+            ctk.CTkLabel(block, text=f"{temp}°F | {desc}").pack(
+                anchor="w", padx=5)
+            ctk.CTkLabel(block, text=f"Humidity: {humidity}%, Wind: {wind} mph").pack(
+                anchor="w", padx=5)
+
+
 # Sends requests to api
 
     def fetch_weather(self, city):
@@ -180,6 +280,12 @@ class WeatherApp:
             text=f"Wind Speed: {data['wind']['speed']} mph")
 
         self.set_icon(self.weather_icon_label, data['weather'][0]['icon'])
+
+        temp = data['main']['temp']
+        condition = data['weather'][0]['description']
+        recommendation = self.get_clothing_recommendation(temp, condition)
+        self.outfit_label.configure(
+            text=f"Outfit Suggestion: {recommendation}")
 
     def save_weather(self, data):
         record = {
@@ -296,10 +402,13 @@ class WeatherApp:
 
         fig = Figure.Figure(figsize=(3.5, 1.6), dpi=100)
         ax = fig.add_subplot(111)
-        ax.bar(cities, temps, color=["#f06292", "#ec407a"])
-        ax.set_ylabel("Temp °F")
-        ax.set_title("City Comparison")
+
+        ax.plot(cities, temps, marker='o', color="#ec407a", linewidth=2)
+        ax.set_ylabel("Temp (°F)")
+        ax.set_title("City Comparison (Line Chart)")
         ax.set_ylim(0, max(temps) + 10)
+        ax.grid(True, linestyle='--', alpha=0.6)
+
         fig.tight_layout()
 
         self.chart_widget = FigureCanvasTkAgg(fig, master=self.compare_tab)

@@ -82,10 +82,7 @@ class WeatherApp:
         self.weather_tab = self.tabview.add("Weather")
         self.history_tab = self.tabview.add("History")
         self.compare_tab = self.tabview.add("City Comparison")
-
         self.forecast_tab = self.tabview.add("5-Day Forecast")
-        self.forecast_frame = ctk.CTkFrame(self.forecast_tab)
-        self.forecast_frame.pack(pady=10, padx=10, fill="both", expand=True)
 
 # Forecast input
         forecast_input = ctk.CTkFrame(self.forecast_tab)
@@ -213,9 +210,12 @@ class WeatherApp:
         for widget in self.forecast_display.winfo_children():
             widget.destroy()
 
-        # Filter forecast list to 1 reading per day (every 24 hours, approximately every 8th item)
+    # Filter 5 daily forecasts (1 per day, approx every 8th)
         daily_forecasts = [item for idx, item in enumerate(
             data['list']) if idx % 8 == 0][:5]
+
+        row_frame = ctk.CTkFrame(self.forecast_display)
+        row_frame.pack(pady=10, padx=10, fill="x")
 
         for forecast in daily_forecasts:
             date = forecast['dt_txt'].split(" ")[0]
@@ -223,18 +223,40 @@ class WeatherApp:
             desc = forecast['weather'][0]['description'].title()
             humidity = forecast['main']['humidity']
             wind = forecast['wind']['speed']
+            icon_code = forecast['weather'][0]['icon']
 
-            block = ctk.CTkFrame(self.forecast_display)
-            block.pack(pady=5, fill="x", padx=10)
+        # Create each forecast block
+            block = ctk.CTkFrame(row_frame, width=150,
+                                 height=200, corner_radius=12)
+            block.pack(side="left", padx=10, pady=5)
+            block.pack_propagate(False)
 
-            ctk.CTkLabel(block, text=f"{date}").pack(anchor="w", padx=5)
-            ctk.CTkLabel(block, text=f"{temp}°F | {desc}").pack(
-                anchor="w", padx=5)
-            ctk.CTkLabel(block, text=f"Humidity: {humidity}%, Wind: {wind} mph").pack(
-                anchor="w", padx=5)
+        # Load and show icon
+            try:
+                url = f"http://openweathermap.org/img/wn/{icon_code}@2x.png"
+                img_data = requests.get(url).content
+                with open(f"forecast_icon_{date}.png", "wb") as f:
+                    f.write(img_data)
+
+                img = Image.open(f"forecast_icon_{date}.png")
+                ctk_img = CTkImage(light_image=img, size=(50, 50))
+                icon_label = ctk.CTkLabel(block, image=ctk_img, text="")
+                icon_label.image = ctk_img  # prevent garbage collection
+                icon_label.pack()
+            except:
+                ctk.CTkLabel(block, text="(No Icon)").pack()
+
+        # Display forecast info
+            ctk.CTkLabel(block, text=f"{date}", font=ctk.CTkFont(
+                size=12, weight="bold")).pack()
+            ctk.CTkLabel(
+                block, text=f"{temp}°F | {desc}", wraplength=120).pack()
+            ctk.CTkLabel(block, text=f"💧 {humidity}%").pack()
+            ctk.CTkLabel(block, text=f"🌬 {wind} mph").pack()
 
 
 # Sends requests to api
+
 
     def fetch_weather(self, city):
         try:

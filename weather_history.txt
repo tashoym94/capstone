@@ -1,8 +1,0 @@
-2025-06-24 16:49:17.745577,London,69.53,few clouds
-2025-06-25 16:58:07.570819,London,75.42,scattered clouds
-2025-06-25 21:01:30.120793,Miami,80.04,broken clouds
-2025-07-01 18:55:06.774691,Miami,85.17,broken clouds
-2025-07-01 19:52:01.408870,Miami,83.21,scattered clouds
-2025-07-02 20:48:58.271914,Miami,80.6,overcast clouds
-2025-07-06 15:05:10.846406,Miami,78.82,thunderstorm
-2025-07-06 15:05:47.908237,Mia,85.91,overcast clouds

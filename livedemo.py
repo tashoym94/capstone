@@ -3,10 +3,12 @@ import requests
 import os
 import json
 import matplotlib.figure as Figure
+from features.icons import set_icon  # Assuming set_icon is defined in icons.py
 from datetime import datetime
 from tkinter import messagebox
 from dotenv import load_dotenv
 from PIL import Image
+from features.city_comparison import compare_cities
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from customtkinter import CTkImage
 import gc  # Optional: for clean memory collection on exit
@@ -18,7 +20,9 @@ class WeatherApp:
     def __init__(self):
         # Set theme and appearance
         ctk.set_appearance_mode("light")
-        ctk.set_default_color_theme("pinktheme.json")
+        theme_path = os.path.join(os.path.dirname(
+            __file__), "data", "pinktheme.json")
+        ctk.set_default_color_theme(theme_path)
         # create window
         self.root = ctk.CTk()
         self.root.title("Weather Dashboard")
@@ -31,6 +35,7 @@ class WeatherApp:
         self.forecast_url = os.getenv("open_weather_forecast_url")
 
         self.chart_widget = None  # To track the matplotlib chart widget
+        self.compare_cities = compare_cities.__get__(self, WeatherApp)
 
         self.setup_gui()
 # Move to GUI folder
@@ -257,7 +262,6 @@ class WeatherApp:
 
 # Sends requests to api
 
-
     def fetch_weather(self, city):
         try:
             if not self.api_key or not self.base_url:
@@ -329,7 +333,7 @@ class WeatherApp:
             history.append(record)
 
             with open("weather_history.json", "w") as f:
-                json.dump(history[-7:], f, indent=4)  # Keep last 7 records
+                json.dump(history[-25:], f, indent=4)  # Keep last 7 records
 
         except Exception as e:
             self.handle_errors(f"Failed to save weather history: {e}")
@@ -354,7 +358,7 @@ class WeatherApp:
             with open("weather_history.json", "r") as f:
                 history = json.load(f)
 
-            for idx, record in enumerate(reversed(history[-7:]), start=1):
+            for idx, record in enumerate(reversed(history[-10:]), start=1):
                 ctk.CTkLabel(self.history_table, text=record['timestamp']).grid(
                     row=idx, column=0, padx=4, pady=2)
                 ctk.CTkLabel(self.history_table, text=record['city']).grid(
@@ -376,47 +380,9 @@ class WeatherApp:
 
 # Move to features
 
-    def compare_cities(self):
-        city1 = self.city1_entry.get().strip()
-        city2 = self.city2_entry.get().strip()
 
-        if not city1 or not city2:
-            self.handle_errors("Please enter both city names.")
-            return
-
-        data1 = self.fetch_weather(city1)
-        data2 = self.fetch_weather(city2)
-
-        if data1 and data2:
-            temp1 = data1['main']['temp']
-            temp2 = data2['main']['temp']
-            diff = abs(round(temp1 - temp2, 1))
-
-            self.result_label.configure(
-                text=f"{data1['name']}: {round(temp1)}°F\n"
-                f"{data2['name']}: {round(temp2)}°F\n"
-                f"Difference: {diff}°F"
-            )
-
-            self.set_icon(self.icon1_label, data1['weather'][0]['icon'])
-            self.set_icon(self.icon2_label, data2['weather'][0]['icon'])
-            self.display_chart([data1['name'], data2['name']], [temp1, temp2])
-
-    def set_icon(self, label, icon_code):
-        try:
-            url = f"http://openweathermap.org/img/wn/{icon_code}@2x.png"
-            img_data = requests.get(url).content
-            with open("temp_icon.png", "wb") as f:
-                f.write(img_data)
-
-            img = Image.open("temp_icon.png")
-            ctk_img = CTkImage(light_image=img, size=(50, 50))
-            label.configure(image=ctk_img, text="")
-            label.image = ctk_img
-
-        except Exception as e:
-            self.handle_errors(f"Icon load failed: {e}")
 # Move to features folder
+
 
     def display_chart(self, cities, temps):
         if self.chart_widget:

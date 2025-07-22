@@ -23,6 +23,6 @@ def compare_cities(self):
             f"Difference: {diff}°F"
         )
 
-        self.set_icon(self.icon1_label, data1['weather'][0]['icon'])
-        self.set_icon(self.icon2_label, data2['weather'][0]['icon'])
+        set_icon(self.icon1_label, data1['weather'][0]['icon'])
+        set_icon(self.icon2_label, data2['weather'][0]['icon'])
         self.display_chart([data1['name'], data2['name']], [temp1, temp2])

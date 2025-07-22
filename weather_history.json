@@ -97,5 +97,59 @@
         "humidity": 93,
         "wind_speed": 3.42,
         "description": "light rain"
+    },
+    {
+        "timestamp": "2025-07-22 13:47:09",
+        "city": "Miami",
+        "temperature": 92.03,
+        "feels_like": 104.63,
+        "humidity": 65,
+        "wind_speed": 4.61,
+        "description": "broken clouds"
+    },
+    {
+        "timestamp": "2025-07-22 14:02:01",
+        "city": "Miami",
+        "temperature": 91.92,
+        "feels_like": 104.52,
+        "humidity": 66,
+        "wind_speed": 4.61,
+        "description": "broken clouds"
+    },
+    {
+        "timestamp": "2025-07-22 14:03:22",
+        "city": "Alabama",
+        "temperature": 93.11,
+        "feels_like": 105.71,
+        "humidity": 64,
+        "wind_speed": 6.64,
+        "description": "scattered clouds"
+    },
+    {
+        "timestamp": "2025-07-22 14:08:17",
+        "city": "Alaska",
+        "temperature": 52.68,
+        "feels_like": 50.99,
+        "humidity": 71,
+        "wind_speed": 2.55,
+        "description": "overcast clouds"
+    },
+    {
+        "timestamp": "2025-07-22 14:09:34",
+        "city": "Alabama",
+        "temperature": 93.11,
+        "feels_like": 105.71,
+        "humidity": 64,
+        "wind_speed": 6.64,
+        "description": "scattered clouds"
+    },
+    {
+        "timestamp": "2025-07-22 14:13:44",
+        "city": "Texas",
+        "temperature": 80.55,
+        "feels_like": 83.7,
+        "humidity": 69,
+        "wind_speed": 9.22,
+        "description": "broken clouds"
     }
 ]

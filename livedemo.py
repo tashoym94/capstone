@@ -8,10 +8,12 @@ from datetime import datetime
 from tkinter import messagebox
 from dotenv import load_dotenv
 from PIL import Image
+from features.icons import set_icon  # Importing set_icon from icons.py
 from features.city_comparison import compare_cities
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from customtkinter import CTkImage
 import gc  # Optional: for clean memory collection on exit
+
 
 load_dotenv()
 
@@ -305,7 +307,7 @@ class WeatherApp:
         self.wind_label.configure(
             text=f"Wind Speed: {data['wind']['speed']} mph")
 
-        self.set_icon(self.weather_icon_label, data['weather'][0]['icon'])
+        set_icon(self.weather_icon_label, data['weather'][0]['icon'])
 
         temp = data['main']['temp']
         condition = data['weather'][0]['description']

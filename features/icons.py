@@ -5,7 +5,7 @@ import customtkinter as ctk
 from customtkinter import CTkImage
 
 
-def set_icon(self, label, icon_code):
+def set_icon(label, icon_code):
     try:
         url = f"http://openweathermap.org/img/wn/{icon_code}@2x.png"
         img_data = requests.get(url).content
@@ -18,4 +18,4 @@ def set_icon(self, label, icon_code):
         label.image = ctk_img
 
     except Exception as e:
-        self.handle_errors(f"Icon load failed: {e}")
+        label.configure(text="(No Icon)")

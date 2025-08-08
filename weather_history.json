@@ -1,155 +1,227 @@
 [
     {
-        "timestamp": "2025-07-15 19:34:35",
-        "city": "Miami",
-        "temperature": 83.14,
-        "feels_like": 91.02,
-        "humidity": 78,
-        "wind_speed": 9.22,
-        "description": "broken clouds"
+        "timestamp": "2025-07-25 20:41:33",
+        "city": "Hawaii",
+        "temperature": 82.09,
+        "feels_like": 87.76,
+        "humidity": 75,
+        "wind_speed": 12.3,
+        "description": "clear sky"
     },
     {
-        "timestamp": "2025-07-15 19:37:03",
-        "city": "California",
-        "temperature": 82,
-        "feels_like": 90.93,
+        "timestamp": "2025-07-25 20:43:25",
+        "city": "Omaha",
+        "temperature": 77.43,
+        "feels_like": 79.02,
         "humidity": 88,
         "wind_speed": 8.05,
+        "description": "light rain"
+    },
+    {
+        "timestamp": "2025-07-25 20:46:30",
+        "city": "Miami",
+        "temperature": 84.74,
+        "feels_like": 94.8,
+        "humidity": 77,
+        "wind_speed": 13.8,
+        "description": "scattered clouds"
+    },
+    {
+        "timestamp": "2025-07-25 20:51:48",
+        "city": "Texas",
+        "temperature": 91.35,
+        "feels_like": 91.98,
+        "humidity": 38,
+        "wind_speed": 8.05,
+        "description": "clear sky"
+    },
+    {
+        "timestamp": "2025-07-25 20:52:41",
+        "city": "Houston",
+        "temperature": 77.18,
+        "feels_like": 79.02,
+        "humidity": 94,
+        "wind_speed": 8.05,
+        "description": "heavy intensity rain"
+    },
+    {
+        "timestamp": "2025-07-25 20:59:55",
+        "city": "Nebraska",
+        "temperature": 77.61,
+        "feels_like": 78.22,
+        "humidity": 67,
+        "wind_speed": 12.88,
         "description": "overcast clouds"
     },
     {
-        "timestamp": "2025-07-15 19:56:41",
+        "timestamp": "2025-07-28 19:04:48",
         "city": "Miami",
-        "temperature": 82.89,
-        "feels_like": 90.41,
-        "humidity": 78,
-        "wind_speed": 9.22,
+        "temperature": 87.64,
+        "feels_like": 100.24,
+        "humidity": 74,
+        "wind_speed": 1.01,
         "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-15 21:18:05",
+        "timestamp": "2025-07-28 19:11:46",
+        "city": "Atlanta",
+        "temperature": 94.69,
+        "feels_like": 100.65,
+        "humidity": 44,
+        "wind_speed": 8.05,
+        "description": "clear sky"
+    },
+    {
+        "timestamp": "2025-07-28 21:12:29",
+        "city": "Alaska",
+        "temperature": 55.6,
+        "feels_like": 55.27,
+        "humidity": 94,
+        "wind_speed": 5.82,
+        "description": "light rain"
+    },
+    {
+        "timestamp": "2025-07-30 19:17:02",
+        "city": "Vega",
+        "temperature": 65.26,
+        "feels_like": 65.71,
+        "humidity": 90,
+        "wind_speed": 3.44,
+        "description": "broken clouds"
+    },
+    {
+        "timestamp": "2025-07-30 19:17:21",
+        "city": "Khrystynivka",
+        "temperature": 58.14,
+        "feels_like": 57.83,
+        "humidity": 89,
+        "wind_speed": 8.61,
+        "description": "clear sky"
+    },
+    {
+        "timestamp": "2025-07-30 19:18:20",
+        "city": "Khrystynivka",
+        "temperature": 58.14,
+        "feels_like": 57.83,
+        "humidity": 89,
+        "wind_speed": 8.61,
+        "description": "clear sky"
+    },
+    {
+        "timestamp": "2025-07-30 19:18:29",
+        "city": "Latashi",
+        "temperature": 58.5,
+        "feels_like": 58.42,
+        "humidity": 93,
+        "wind_speed": 11.99,
+        "description": "overcast clouds"
+    },
+    {
+        "timestamp": "2025-07-30 19:18:45",
+        "city": "New York",
+        "temperature": 85.48,
+        "feels_like": 93.02,
+        "humidity": 68,
+        "wind_speed": 23,
+        "description": "overcast clouds"
+    },
+    {
+        "timestamp": "2025-07-30 19:18:55",
+        "city": "Texas",
+        "temperature": 93.15,
+        "feels_like": 89.83,
+        "humidity": 22,
+        "wind_speed": 8.05,
+        "description": "clear sky"
+    },
+    {
+        "timestamp": "2025-07-30 19:19:13",
+        "city": "Pidostapy",
+        "temperature": 56.14,
+        "feels_like": 56.01,
+        "humidity": 97,
+        "wind_speed": 6.58,
+        "description": "overcast clouds"
+    },
+    {
+        "timestamp": "2025-07-30 19:42:45",
+        "city": "Kansas",
+        "temperature": 79.25,
+        "feels_like": 79.25,
+        "humidity": 68,
+        "wind_speed": 15.52,
+        "description": "overcast clouds"
+    },
+    {
+        "timestamp": "2025-07-31 20:52:33",
         "city": "Miami",
-        "temperature": 81.5,
-        "feels_like": 87.82,
-        "humidity": 81,
+        "temperature": 85.57,
+        "feels_like": 97.54,
+        "humidity": 78,
         "wind_speed": 5.75,
         "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-16 17:26:06",
-        "city": "New York",
-        "temperature": 87.1,
-        "feels_like": 97.32,
-        "humidity": 69,
-        "wind_speed": 13.8,
-        "description": "broken clouds"
-    },
-    {
-        "timestamp": "2025-07-16 19:57:23",
-        "city": "Omaha",
-        "temperature": 74.59,
-        "feels_like": 75.36,
+        "timestamp": "2025-08-04 20:31:08",
+        "city": "Miami",
+        "temperature": 85.68,
+        "feels_like": 97.38,
         "humidity": 77,
-        "wind_speed": 17.27,
+        "wind_speed": 3.44,
         "description": "broken clouds"
     },
     {
-        "timestamp": "2025-07-16 20:12:02",
-        "city": "Milwaukee",
-        "temperature": 75.99,
-        "feels_like": 77.2,
-        "humidity": 83,
-        "wind_speed": 8.05,
-        "description": "broken clouds"
-    },
-    {
-        "timestamp": "2025-07-16 20:17:34",
-        "city": "Ca\u00f1ada",
-        "temperature": 79.34,
-        "feels_like": 79.34,
-        "humidity": 59,
-        "wind_speed": 3.31,
+        "timestamp": "2025-08-04 20:32:16",
+        "city": "California",
+        "temperature": 73.51,
+        "feels_like": 73.9,
+        "humidity": 71,
+        "wind_speed": 6.91,
         "description": "clear sky"
     },
     {
-        "timestamp": "2025-07-16 20:17:38",
-        "city": "Hawaii",
-        "temperature": 84.85,
-        "feels_like": 92.35,
-        "humidity": 70,
-        "wind_speed": 26.46,
+        "timestamp": "2025-08-04 21:29:02",
+        "city": "Miami",
+        "temperature": 83.41,
+        "feels_like": 92.71,
+        "humidity": 81,
+        "wind_speed": 5.75,
+        "description": "scattered clouds"
+    },
+    {
+        "timestamp": "2025-08-05 19:26:32",
+        "city": "Miami",
+        "temperature": 83.1,
+        "feels_like": 90.63,
+        "humidity": 77,
+        "wind_speed": 10.36,
+        "description": "thunderstorm"
+    },
+    {
+        "timestamp": "2025-08-07 20:22:46",
+        "city": "Toronto",
+        "temperature": 74.84,
+        "feels_like": 75.22,
+        "humidity": 68,
+        "wind_speed": 6.91,
+        "description": "clear sky"
+    },
+    {
+        "timestamp": "2025-08-07 21:03:12",
+        "city": "Miami",
+        "temperature": 80.51,
+        "feels_like": 86.34,
+        "humidity": 86,
+        "wind_speed": 5.75,
         "description": "few clouds"
     },
     {
-        "timestamp": "2025-07-16 20:18:11",
-        "city": "Phenix",
-        "temperature": 83.3,
-        "feels_like": 94.19,
-        "humidity": 86,
-        "wind_speed": 7.34,
-        "description": "broken clouds"
-    },
-    {
-        "timestamp": "2025-07-16 20:19:09",
-        "city": "Pizza",
-        "temperature": 70.59,
-        "feels_like": 71.73,
-        "humidity": 93,
-        "wind_speed": 3.42,
-        "description": "light rain"
-    },
-    {
-        "timestamp": "2025-07-22 13:47:09",
+        "timestamp": "2025-08-08 12:56:59",
         "city": "Miami",
-        "temperature": 92.03,
-        "feels_like": 104.63,
-        "humidity": 65,
+        "temperature": 84.04,
+        "feels_like": 93.7,
+        "humidity": 79,
         "wind_speed": 4.61,
-        "description": "broken clouds"
-    },
-    {
-        "timestamp": "2025-07-22 14:02:01",
-        "city": "Miami",
-        "temperature": 91.92,
-        "feels_like": 104.52,
-        "humidity": 66,
-        "wind_speed": 4.61,
-        "description": "broken clouds"
-    },
-    {
-        "timestamp": "2025-07-22 14:03:22",
-        "city": "Alabama",
-        "temperature": 93.11,
-        "feels_like": 105.71,
-        "humidity": 64,
-        "wind_speed": 6.64,
-        "description": "scattered clouds"
-    },
-    {
-        "timestamp": "2025-07-22 14:08:17",
-        "city": "Alaska",
-        "temperature": 52.68,
-        "feels_like": 50.99,
-        "humidity": 71,
-        "wind_speed": 2.55,
-        "description": "overcast clouds"
-    },
-    {
-        "timestamp": "2025-07-22 14:09:34",
-        "city": "Alabama",
-        "temperature": 93.11,
-        "feels_like": 105.71,
-        "humidity": 64,
-        "wind_speed": 6.64,
-        "description": "scattered clouds"
-    },
-    {
-        "timestamp": "2025-07-22 14:13:44",
-        "city": "Texas",
-        "temperature": 80.55,
-        "feels_like": 83.7,
-        "humidity": 69,
-        "wind_speed": 9.22,
         "description": "broken clouds"
     }
 ]

@@ -1,0 +1,21 @@
+timestamp,city,temperature,feels_like,humidity,wind_speed,description
+2025-07-25 20:59:55,Nebraska,77.61,78.22,67,12.88,overcast clouds
+2025-07-28 19:04:48,Miami,87.64,100.24,74,1.01,broken clouds
+2025-07-28 19:11:46,Atlanta,94.69,100.65,44,8.05,clear sky
+2025-07-28 21:12:29,Alaska,55.6,55.27,94,5.82,light rain
+2025-07-30 19:17:02,Vega,65.26,65.71,90,3.44,broken clouds
+2025-07-30 19:17:21,Khrystynivka,58.14,57.83,89,8.61,clear sky
+2025-07-30 19:18:20,Khrystynivka,58.14,57.83,89,8.61,clear sky
+2025-07-30 19:18:29,Latashi,58.5,58.42,93,11.99,overcast clouds
+2025-07-30 19:18:45,New York,85.48,93.02,68,23,overcast clouds
+2025-07-30 19:18:55,Texas,93.15,89.83,22,8.05,clear sky
+2025-07-30 19:19:13,Pidostapy,56.14,56.01,97,6.58,overcast clouds
+2025-07-30 19:42:45,Kansas,79.25,79.25,68,15.52,overcast clouds
+2025-07-31 20:52:33,Miami,85.57,97.54,78,5.75,broken clouds
+2025-08-04 20:31:08,Miami,85.68,97.38,77,3.44,broken clouds
+2025-08-04 20:32:16,California,73.51,73.9,71,6.91,clear sky
+2025-08-04 21:29:02,Miami,83.41,92.71,81,5.75,scattered clouds
+2025-08-05 19:26:32,Miami,83.1,90.63,77,10.36,thunderstorm
+2025-08-07 20:22:46,Toronto,74.84,75.22,68,6.91,clear sky
+2025-08-07 21:03:12,Miami,80.51,86.34,86,5.75,few clouds
+2025-08-08 12:56:59,Miami,84.04,93.7,79,4.61,broken clouds
